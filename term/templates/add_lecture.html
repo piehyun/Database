@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lecture_information</title>
+</head>
+<body>
+    <b>
+        Subject List
+    </b>
+
+    <table border="1">
+
+        <tbody>
+            {% for sub in subs %}
+            <tr>
+                <td>{{ sub[0] }}</td>
+                <td>{{ sub[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+
+    <form action="/add_lecture" method="post">
+        <a>CODE: </a>
+        <input type="text" name="code" value="" /><br>
+
+        <a>NAME: </a>
+        <input type="text" name="name" value="" /><br>
+
+        <a>PRICE: </a>
+        <input type="text" name="price" value="" /><br>
+
+        <input type="submit" name="button" value="add" /> <br>
+        <input type="hidden" name="id" value="{{ids}}" />
+        <input type="hidden" name="password" value="{{passwords}}" />
+
+    </form>
+
+    <form action="/login" method="post">
+        <input type="submit" name="button" value="cancel" onclick="history.back();" />
+        <input type="hidden" name="send" value="login" />
+        <input type="hidden" name="id" value="{{ids}}" />
+        <input type="hidden" name="password" value="{{passwords}}" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my_info</title>
+    <style>
+    p{
+        font-weight: bold;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    <p>
+        My lecture
+    </p>
+
+    <table border="1">
+        <thead>
+        <th>subject</th>
+        <th>code</th>
+        <th>lecture name</th>
+        <th>tutor</th>
+        <th>price</th>
+        </thead>
+
+        <tbody>
+            {% for my_lecture in my_lectures%}
+            <tr>
+                <td>{{ my_lecture[0] }}</td>
+                <td>{{ my_lecture[1] }}</td>
+                <td>{{ my_lecture[2] }}</td>
+                <td>{{ my_lecture[3] }}</td>
+                <td>{{ my_lecture[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>
+        Registered Lecture
+    </p>
+    <table border="1">
+        <thead>
+        <th>subject</th>
+        <th>lecture name</th>
+        <th>tutor</th>
+        <th>price</th>
+        </thead>
+
+        <tbody>
+            {% for r_lecture in r_lectures %}
+            <tr>
+                <td>{{ r_lecture[0] }}</td>
+                <td>{{ r_lecture[1] }}</td>
+                <td>{{ r_lecture[2] }}</td>
+                <td>{{ r_lecture[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+    <form action="/login" method="post">
+        <input type="submit" name="button" value="return" onclick="history.back();" />
+        <input type="hidden" name="send" value="login" />
+        <input type="hidden" name="id" value="{{ids}}" />
+        <input type="hidden" name="password" value="{{passwords}}" />
+    </form>
+</body>
+</html>

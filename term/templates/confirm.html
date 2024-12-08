@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm</title>
+</head>
+
+<body>
+    <b>"결제 완료되었습니다. 수강하시는 강의 목록은 다음과 같습니다."</b>
+    <table border="1">
+        <thead>
+        <th>tutee</th>
+        <th>tutor</th>
+        <th>subject</th>
+        <th>lecture_name</th>
+        <th>price</th>
+        </thead>
+
+        <tbody>
+            {% for enroll in enrolls %}
+            <tr>
+                <td>{{ enroll[0] }}</td>
+                <td>{{ enroll[1] }}</td>
+                <td>{{ enroll[2] }}</td>
+                <td>{{ enroll[3] }}</td>
+                <td>{{ enroll[4]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form action="/login" method="post">
+        <input type="submit" name="button" value="return" onclick="history.back();" />
+        <input type="hidden" name="send" value="login" />
+        <input type="hidden" name="id" value="{{ids}}" />
+        <input type="hidden" name="password" value="{{passwords}}" />
+    </form>
+
+
+
+</body>
+</html>

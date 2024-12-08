@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm</title>
+</head>
+
+<body>
+    <b>Lecture INFO</b><br /><br />
+    <table border="1">
+        <thead>
+        <th>code</th>
+        <th>name</th>
+        <th>price</th>
+        <th>tutor</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ lecture[0] }}</td>
+                <td>{{ lecture[1] }}</td>
+                <td>{{ lecture[2] }}</td>
+                <td>{{ lecture[3] }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br /><br /><br />
+
+ 
+    <a>Your credit: {{credit}}</a><br>
+    <a>Your rating: {{rating}}</a><br>
+    <a>Total price: {{lecture[2]}}</a><br>
+    <a>Discount price: {{discount_price}}</a>
+
+    <br />
+    <a>========================================</a><br />
+    <a>Final price:{{final_price}}</a><br/>
+
+
+    <form action="/confirm" method="post">
+        <input type="submit" name="send" value="confirm" />
+        <input type="hidden" name="id" value="{{ids}}"/>
+        <input type="hidden" name="password" value="{{passwords}}"/>
+        <input type="hidden" name="code" value="{{lecture[0]}}"/>
+        <input type="hidden" name="name" value="{{lecture[1]}}"/>
+        <input type="hidden" name="price" value="{{lecture[2]}}"/>
+        <input type="hidden" name="tutor" value="{{lecture[3]}}"/>
+        <input type="hidden" name="final_price" value="{{final_price}}"/>
+        <input type="hidden" name="credit" value="{{credit}}"/>
+    </form>
+
+
+    <form action="/login" method="post">
+        <input type="submit" name="button" value="cancel"  onclick="history.back();"/>
+        <input type="hidden" name="send" value="login"/>
+        <input type="hidden" name="id" value="{{ids}}" />
+        <input type="hidden" name="password" value="{{passwords}}"/>
+    </form>
+</body>
+</html>

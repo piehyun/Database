@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error!</title>
+</head>
+
+
+
+<body>
+    <b>The same lecture exists in this site! Please try again!</b><br />
+    <a>========================================================</a>
+    <br /><br />
+    <b>Lecture List</b><br />
+    <table border="1">
+        <thead>
+        <th>code</th>
+        <th>lecture name</th>
+        <th>price</th>
+        <th>tutor</th>
+        </thead>
+
+        <tbody>
+            {% for l in ls%}
+            <tr>
+                <td>{{ l[0] }}</td>
+                <td>{{ l[1] }}</td>
+                <td>{{ l[2] }}</td>
+                <td>{{ l[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="/login" method="post">
+        <input type="submit" name="button" value="return" onclick="history.back();" />
+        <input type="hidden" name="send" value="login" />
+        <input type="hidden" name="id" value="{{ids}}" />
+        <input type="hidden" name="password" value="{{passwords}}" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin_trades_information</title>
+</head>
+<body>
+    <b> admin_trades_info</b>
+    <br /><br />
+
+    <table border="1">
+        <thead>
+        <th>tutee</th>
+        <th>tutor</th>
+        <th>code</th>
+        <th>lecture_name</th>
+        <th>price</th>
+
+        <tbody>
+            {% for enrollment in enrollments %}
+            <tr>
+                <td>{{ enrollment[0] }}</td>
+                <td>{{ enrollment[1] }}</td>
+                <td>{{ enrollment[2] }}</td>
+                <td>{{ enrollment[3] }}</td>
+                <td>{{ enrollment[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br />
+    <form action="/login" method="post">
+        <input type="submit" name="button" value="return" onclick="history.back();" />
+        <input type="hidden" name="send" value="login" />
+        <input type="hidden" name="id" value="{{ids}}" />
+        <input type="hidden" name="password" value="{{passwords}}" />
+    </form>
+
+</body>
+</html>

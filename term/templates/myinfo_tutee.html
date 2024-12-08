@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myinfo_tutee</title>
+  <style>
+    p{
+        font-weight: bold;
+        font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+    <p>
+        My lecture
+    </p>
+
+    <table border="1">
+        <thead>
+        <th>code</th>
+        <th>lecture name</th>
+        <th>price</th>
+        <th>tutor</th>
+        </thead>
+
+        <tbody>
+            {% for lecture in lectures%}
+            <tr>
+                <td>{{ lecture[0] }}</td>
+                <td>{{ lecture[1] }}</td>
+                <td>{{ lecture[2] }}</td>
+                <td>{{ lecture[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <form action="/login" method="post">
+        <input type="submit" name="button" value="return" onclick="history.back();" />
+        <input type="hidden" name="send" value="login" />
+        <input type="hidden" name="id" value="{{ids}}" />
+        <input type="hidden" name="password" value="{{passwords}}" />
+    </form>
+
+</body>
+</html>
